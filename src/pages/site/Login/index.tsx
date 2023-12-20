@@ -13,7 +13,7 @@ export default function Login() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || "/"
+  const from: string = location.state?.from?.pathname || "/"
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | undefined>(undefined);
