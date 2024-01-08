@@ -1,3 +1,4 @@
+import TopNav from "./components/TopNav";
 
 interface Props {
     children: JSX.Element;
@@ -6,8 +7,11 @@ interface Props {
 const Layout = ({children}: Props) => {
 
     return (
-        <div className="h-screen bg-blue-50">
-            {children}
+        <div className="h-screen bg-slate-50 flex flex-col">
+            <TopNav />
+            <div className="flex-1">
+              {children}
+            </div>
         </div>
     )
 }
