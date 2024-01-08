@@ -5,11 +5,12 @@ import {
   Route,
   RouterProvider
 } from "react-router-dom";
-import Login from './pages/site/Login';
-import Register from './pages/site/Register';
-import ErrorPage from './pages/ErrorPage';
-import Home from './pages/site/Home';
-import CreateFarm from './pages/site/farm/create';
+import Login from '@pages/site/Login';
+import Register from '@pages/site/Register';
+import ErrorPage from '@pages/ErrorPage';
+import Home from '@pages/site/Home';
+import CreateFarm from '@/pages/site/CreateFarm';
+import Dashboard from '@/pages/portal/Dashboard';
 
 function App() {
 
@@ -34,6 +35,10 @@ function App() {
         <Route
            path="/create-farm"
            element={<CreateFarm />}
+        />
+        <Route
+          path='farm/:farmslug'
+          element={<Dashboard />}
         />
       </Route>
     )

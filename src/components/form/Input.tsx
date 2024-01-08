@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { RegisterOptions, UseFormRegister, FieldValues } from 'react-hook-form';
+import { RegisterOptions, UseFormRegister } from 'react-hook-form';
 
 type InputProps = {
   label: string;
