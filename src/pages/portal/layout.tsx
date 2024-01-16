@@ -1,4 +1,4 @@
-import TopNav from "./components/TopNav";
+import TopNav from "./components/nav/TopNav";
 
 interface Props {
     children: JSX.Element;

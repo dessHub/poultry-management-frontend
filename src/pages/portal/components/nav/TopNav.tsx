@@ -1,14 +1,24 @@
 import { Fragment, useEffect, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon, CheckIcon, ChevronRightIcon, DocumentTextIcon, IdentificationIcon, ChevronDownIcon } from '@heroicons/react/24/outline'
+import {
+    ArrowRightStartOnRectangleIcon,
+    Bars3Icon, 
+    CheckIcon, 
+    ChevronDownIcon,
+    DocumentTextIcon, 
+    FolderIcon,
+    IdentificationIcon, 
+    PlusIcon,
+    UserCircleIcon,
+    WindowIcon,
+    XMarkIcon,
+} from '@heroicons/react/24/outline'
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { NavigationItem } from 'types/nav'
 import TextAvatar from '@/components/atoms/TextAvatar';
 import { avatarBgColors } from '@/data/colors';
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
+import FarmNav from './FarmNav';
+import { classNames } from '@/helpers';
 
 const navigations: NavigationItem[] = [
   { name: 'About', title: 'About Us', href: '/about', current: false, icon: IdentificationIcon },
@@ -117,39 +127,84 @@ const TopNav = () => {
                                 leaveTo="transform opacity-0 scale-95"
                             >
                                 <Menu.Items className="absolute left-3 right-3 z-10 mt-2 origin-top-right bg-neutral-900 rounded-md border border-neutral-500 py-1 shadow-lg ">
+                                    <div className='text-xs px-3'>Farms</div>
                                     {farms.map((item, index) => (
-                                        <Menu.Item>
-                                        <NavLink
-                                            key={item.name}
-                                            to={`/farm/${item.slug}`}
-                                            className='px-3 py-2 text-xs font-medium flex items-center flex items-center'
-                                        >
-                                            <TextAvatar name={item.name} bgColor={avatarBgColors[index]} isRounded={true} />
-                                            <span className='ml-2 flex-1'>{item.name}</span>
-                                            {pathName === `/farm/${item.slug}` && (<CheckIcon className="block h-4 w-4 ml-2" aria-hidden="true" />)}
-                                        </NavLink>
+                                        <Menu.Item key={item.slug}>
+                                            <NavLink
+                                                key={item.name}
+                                                to={`/farm/${item.slug}`}
+                                                className='px-3 py-2 text-xs font-medium flex items-center flex items-center'
+                                            >
+                                                <TextAvatar name={item.name} bgColor={avatarBgColors[index]} isRounded={true} />
+                                                <span className='ml-2 flex-1'>{item.name}</span>
+                                                {pathName === `/farm/${item.slug}` && (<CheckIcon className="block h-4 w-4 ml-2" aria-hidden="true" />)}
+                                            </NavLink>
                                         </Menu.Item>
                                     ))}
+                                    <Menu.Item>
+                                        <NavLink
+                                            key="create-farm"
+                                            to={`/create-farm`}
+                                            className='px-4 py-2 text-xs font-medium flex items-center flex items-center'
+                                        >
+                                            <PlusIcon className="block h-4 w-4 mr-1 border rounded" aria-hidden="true" />
+                                            <span className='ml-2 flex-1'>Create Farm</span>
+                                        </NavLink>
+                                    </Menu.Item>
                                 </Menu.Items>
                             </Transition>
                         </Menu>
                         
                     </div>
-                    <div className="space-y-1 px-2 pb-3 pt-2">
-                        {navigations.map((item) => (
-                            <NavLink
-                                key={item.name}
-                                to={item.href}
-                                className={({isActive}) => classNames(
-                                isActive ? 'bg-red-100 text-gray-700' : 'bg-primary text-gray-900 hover:bg-red-400 hover:text-white',
-                                'px-3 py-2 text-xs font-medium flex items-center border-b'
-                                )}
-                            >
-                                <TextAvatar name={item.name} />
-                                <span>{item.name}</span>
-                                <ChevronRightIcon className="block h-3 w-4 ml-2" aria-hidden="true" />
-                            </NavLink>
-                        ))}
+                    <div className="space-y-1 px-2 py-4 border-y border-neutral-500">
+                        <NavLink
+                            key="portal"
+                            to={`/farm/${currentFarm.slug}`}
+                            className={({isActive}) => classNames(
+                            isActive ? 'bg-blue-950 text-blue-200' : '',
+                            'px-3 py-2 text-xs font-medium flex items-center'
+                            )}
+                        >
+                            <WindowIcon className="block h-4 w-4 mr-1" aria-hidden="true" />
+                            <span>Dashboard</span>
+                        </NavLink>
+                        <NavLink
+                            key="flocks"
+                            to={`/farm/${currentFarm.slug}/flocks`}
+                            className={({isActive}) => classNames(
+                            isActive ? 'bg-blue-950 text-blue-200' : '',
+                            'px-3 py-2 text-xs font-medium flex items-center'
+                            )}
+                        >
+                            <FolderIcon className="block h-4 w-4 mr-1" aria-hidden="true" />
+                            <span>Flocks</span>
+                        </NavLink>
+                        <FarmNav slug={currentFarm.slug} />
+                    </div>
+
+                    <div className='px-5 py-4'>
+                        <div className='flex items-center mb-3'>
+                            <TextAvatar name={currentFarm.name} bgColor="bg-blue-300" textColor="text-blue-900" isRounded={true} /> 
+                            <div className='ml-3'>
+                                <div className='text-xs'>Dan Dan</div>
+                                <div className='text-xs text-neutral-500'>farm@mail.com</div>
+                            </div>
+                        </div>
+                        <NavLink
+                            key="profile"
+                            to={`/profile`}
+                            className={({isActive}) => classNames(
+                            isActive ? 'bg-blue-950 text-blue-200' : '',
+                            'py-2 text-xs font-medium flex items-center'
+                            )}
+                        >
+                            <UserCircleIcon className="block h-4 w-4 mr-2" aria-hidden="true" />
+                            <span>Profile</span>
+                        </NavLink>
+                        <button className='flex items-center py-2 text-sm font-medium text-red-500'>
+                            <ArrowRightStartOnRectangleIcon className="block h-4 w-4 mr-2" aria-hidden="true" />
+                            <span>Sign out</span>
+                        </button>
                     </div>
                 </Disclosure.Panel>
                 </>

@@ -40,6 +40,14 @@ function App() {
           path='farm/:farmslug'
           element={<Dashboard />}
         />
+        <Route
+          path='farm/:farmslug/settings'
+          element={<Dashboard />}
+        />
+        <Route
+          path='farm/:farmslug/settings/members'
+          element={<Dashboard />}
+        />
       </Route>
     )
   );
