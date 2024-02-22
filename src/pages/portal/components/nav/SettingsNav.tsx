@@ -14,7 +14,7 @@ interface Props {
     slug: string
 }
 
-const FarmNav: FC<Props> = ({slug}) => {
+const SettingsNav: FC<Props> = ({slug}) => {
   return (
         <Disclosure defaultOpen={true}>
           {({ open }) => (
@@ -36,6 +36,7 @@ const FarmNav: FC<Props> = ({slug}) => {
                     <NavLink
                         key="portal"
                         to={`/farm/${slug}/settings`}
+                        end
                         className={({isActive}) => classNames(
                         isActive ? 'bg-blue-950 text-blue-200' : '',
                         'px-3 py-2 text-xs font-medium flex items-center'
@@ -47,6 +48,7 @@ const FarmNav: FC<Props> = ({slug}) => {
                     <NavLink
                         key="flocks"
                         to={`/farm/${slug}/settings/members`}
+                        end
                         className={({isActive}) => classNames(
                         isActive ? 'bg-blue-950 text-blue-200' : '',
                         'px-3 py-2 text-xs font-medium flex items-center'
@@ -63,4 +65,4 @@ const FarmNav: FC<Props> = ({slug}) => {
   )
 }
 
-export default FarmNav;
+export default SettingsNav;
