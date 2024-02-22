@@ -129,7 +129,7 @@ const FlockNav: FC<Props> = ({farmSlug}) => {
                 </NavLink>
                 <NavLink
                     key="growth"
-                    to={`/farm/${farmSlug}/flocks/${currentFlock.slug}`}
+                    to={`/farm/${farmSlug}/flocks/${currentFlock.slug}/growth`}
                     end
                     className={({isActive}) => classNames(
                     isActive ? 'bg-blue-950 text-blue-200' : '',
@@ -141,7 +141,7 @@ const FlockNav: FC<Props> = ({farmSlug}) => {
                 </NavLink>
                 <NavLink
                     key="vaccines"
-                    to={`/farm/${farmSlug}/flocks/${currentFlock.slug}`}
+                    to={`/farm/${farmSlug}/flocks/${currentFlock.slug}/vaccines`}
                     end
                     className={({isActive}) => classNames(
                     isActive ? 'bg-blue-950 text-blue-200' : '',
@@ -153,7 +153,7 @@ const FlockNav: FC<Props> = ({farmSlug}) => {
                 </NavLink>
                 <NavLink
                     key="mortalities"
-                    to={`/farm/${farmSlug}/flocks/${currentFlock.slug}`}
+                    to={`/farm/${farmSlug}/flocks/${currentFlock.slug}/mortalities`}
                     end
                     className={({isActive}) => classNames(
                     isActive ? 'bg-blue-950 text-blue-200' : '',

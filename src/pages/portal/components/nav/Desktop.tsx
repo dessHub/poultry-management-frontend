@@ -8,7 +8,7 @@ const Desktop: FC<Props> = ({children}) => {
 
     return (
         <>
-          <div className="relative w-48 hidden sm:block h-full border-r border-neutral-500">
+          <div className="relative w-48 xl:w-60 hidden sm:block h-full bg-neutral-900 border-r border-neutral-500">
             <div className="flex items-center border-b border-neutral-500 py-2">
                 <img
                     className="h-8 w-auto mr-2"
