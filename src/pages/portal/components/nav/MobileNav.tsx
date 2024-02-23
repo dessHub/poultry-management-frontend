@@ -2,23 +2,15 @@ import { FC, useEffect, useState } from 'react'
 import { Disclosure } from '@headlessui/react'
 import {
     Bars3Icon,
-    DocumentTextIcon,
-    IdentificationIcon,
     XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
-import { NavigationItem } from 'types/nav'
 import TextAvatar from '@/components/atoms/TextAvatar';
 import { avatarBgColors } from '@/data/colors';
 
 interface Props {
     children: JSX.Element;
 }
-
-const navigations: NavigationItem[] = [
-  { name: 'About', title: 'About Us', href: '/about', current: false, icon: IdentificationIcon },
-  { name: 'FAQs', title: 'FAQs', href: '/faqs', current: false, icon: DocumentTextIcon }
-]
 
 const farms = [
     {
