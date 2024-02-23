@@ -11,6 +11,7 @@ import ErrorPage from '@pages/ErrorPage';
 import Home from '@pages/site/Home';
 import CreateFarm from '@/pages/site/CreateFarm';
 import Dashboard from '@/pages/portal/Dashboard';
+import Flocks from './pages/portal/flocks/All';
 
 function App() {
 
@@ -50,11 +51,15 @@ function App() {
         />
         <Route
           path='farm/:farmslug/flocks'
-          element={<Dashboard />}
+          element={<Flocks />}
         />
         <Route
           path='farm/:farmslug/flocks/:flockslug'
           element={<Dashboard />}
+        />
+        <Route
+          path='farm/:farmslug/flocks/:flockslug/settings'
+          element={<Flocks />}
         />
       </Route>
     )

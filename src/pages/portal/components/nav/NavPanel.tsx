@@ -147,7 +147,7 @@ const NavPanel = () => {
                     <Menu as="div" className="w-full relative">
                         <div className='w-full'>
                             <Menu.Button className="w-full">
-                                <span className="sr-only">Open farm menu</span>
+                                <span className="sr-only">Open account menu</span>
                                 <div className='flex items-center'>
                                     <TextAvatar name={currentFarm.name} bgColor="bg-blue-300" textColor="text-blue-900" isRounded={true} /> 
                                     <div className='ml-3 flex-1 text-left'>
