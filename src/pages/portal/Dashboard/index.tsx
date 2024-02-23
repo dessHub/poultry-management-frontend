@@ -1,9 +1,10 @@
-import { ArrowRightIcon, FolderIcon, WindowIcon } from "@heroicons/react/24/outline";
+import { NavLink, useLocation } from "react-router-dom";
+import { ArrowRightIcon, FolderIcon, WindowIcon, PlusIcon } from "@heroicons/react/24/outline";
 import Layout from "../layout"
 import TextAvatar from "@/components/atoms/TextAvatar";
 import { avatarBgColors } from "@/data/colors";
 import FlockCard from "./components/FlockCard";
-import { NavLink, useLocation } from "react-router-dom";
+import EmptyCard from "../components/atoms/EmptyCard";
 
 const flocks = [
     {
@@ -64,15 +65,27 @@ const Dashboard = () => {
                         <div className='flex items-center w-full font-bold text-neutral-300 px-5 py-3 border-b border-neutral-500'>
                             <FolderIcon className="block h-7 w-7 mr-1 text-neutral-400" aria-hidden="true" />
                             <div className='flex-1 text-left px-2 text-md'>Farm one</div>
+                            {flocks.length ? (
                             <NavLink to={`${pathName}/flocks`} className="flex items-center hover:bg-neutral-800 p-2">
                                 <span className="text-xs px-2">All Flocks</span>
                                 <ArrowRightIcon className="h-5 w-5" />
-                            </NavLink>
+                            </NavLink>) :
+                            (<button className="flex items-center p-2 rounded-md bg-blue-900 text-xs text-neutral-300">
+                                <PlusIcon className="h-4 w-4 mr-2" />
+                                <span>Create Flock</span>
+                            </button>)}
                         </div>
 
                         <div className="overflow-auto">
                             <div className="min-w-96">
-                                {flocks.map(({slug, name}) => (<FlockCard name={name} slug={slug} />))}
+                                {flocks.length ? 
+                                flocks.map(({slug, name}) => (<FlockCard name={name} slug={slug} />)) :
+                                (
+                                    <div className="flex items-center justify-center p-5">
+                                        <EmptyCard />
+                                    </div>
+                                )
+                                }
                             </div>
 
                         </div>
