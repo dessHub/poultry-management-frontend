@@ -5,6 +5,7 @@ import {
   Route,
   RouterProvider
 } from "react-router-dom";
+import "react-datepicker/dist/react-datepicker.css";
 import Login from '@pages/site/Login';
 import Register from '@pages/site/Register';
 import ErrorPage from '@pages/ErrorPage';

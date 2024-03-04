@@ -31,8 +31,6 @@ const MobileNav: FC<Props> = ({children}) => {
     const navigate = useNavigate();
     const location = useLocation();
     const pathName = location.pathname;
-
-    console.log('location==',location)
   
     const from = "/login"
 

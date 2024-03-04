@@ -38,7 +38,6 @@ const NavPanel = () => {
     const pathName = location.pathname;
     // Check if the current route includes '/flock/'
     const isFlockRoute = pathName.includes('/flocks/');
-    console.log('isFlockRoute', isFlockRoute)
   
     const from = "/login"
 
