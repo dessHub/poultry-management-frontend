@@ -6,6 +6,8 @@ import {
   RouterProvider
 } from "react-router-dom";
 import "react-datepicker/dist/react-datepicker.css";
+import { Chart as ChartJS
+  } from 'chart.js/auto';
 import Login from '@pages/site/Login';
 import Register from '@pages/site/Register';
 import ErrorPage from '@pages/ErrorPage';
@@ -14,6 +16,13 @@ import CreateFarm from '@/pages/site/CreateFarm';
 import Dashboard from '@/pages/portal/Dashboard';
 import Flocks from './pages/portal/flocks/All';
 import FlockOverview from './pages/portal/flocks/FlockOverview';
+import Growth from './pages/portal/flocks/Growth';
+
+/**
+ * Register chart js
+ * This allow to use chart js components in all the components
+ * */
+ChartJS.register();
 
 function App() {
 
@@ -58,6 +67,10 @@ function App() {
         <Route
           path='farm/:farmslug/flocks/:flockslug'
           element={<FlockOverview />}
+        />
+        <Route
+          path='farm/:farmslug/flocks/:flockslug/growth'
+          element={<Growth />}
         />
         <Route
           path='farm/:farmslug/flocks/:flockslug/settings'
