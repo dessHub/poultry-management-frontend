@@ -13,6 +13,7 @@ import Home from '@pages/site/Home';
 import CreateFarm from '@/pages/site/CreateFarm';
 import Dashboard from '@/pages/portal/Dashboard';
 import Flocks from './pages/portal/flocks/All';
+import FlockOverview from './pages/portal/flocks/FlockOverview';
 
 function App() {
 
@@ -56,7 +57,7 @@ function App() {
         />
         <Route
           path='farm/:farmslug/flocks/:flockslug'
-          element={<Dashboard />}
+          element={<FlockOverview />}
         />
         <Route
           path='farm/:farmslug/flocks/:flockslug/settings'
