@@ -1,0 +1,1 @@
+export const avatarBgColors = ['bg-red-400', 'bg-orange-400', 'bg-amber-400', 'bg-yellow-400']
