@@ -125,7 +125,7 @@ const Flocks = () => {
 
                     </div>
                 </div>
-                <Modal open={isOpen} setOpen={setModalOpen} >
+                <Modal title="Create a flock" open={isOpen} setOpen={setModalOpen} >
                     <div className="mt-2">
 
                         {error && (

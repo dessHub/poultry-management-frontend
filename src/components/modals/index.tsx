@@ -5,10 +5,11 @@ import { XMarkIcon } from '@heroicons/react/24/solid'
 interface Props {
     open: boolean,
     setOpen: Dispatch<SetStateAction<boolean>>,
+    title: string,
     children: JSX.Element
 }
 
-const Modal: FC<Props> = ({open, setOpen, children}) => {
+const Modal: FC<Props> = ({open, setOpen, title, children}) => {
     const closeButtonRef = useRef(null)
 
   return (
@@ -40,7 +41,7 @@ const Modal: FC<Props> = ({open, setOpen, children}) => {
               <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-neutral-900 text-neutral-300 text-left border border-neutral-500 shadow-xl transition-all sm:my-8 w-full sm:max-w-lg">
                 <div className='flex justify-between items-center p-3 border-b border-neutral-500'>
                     <div className='text-xl md:text-2xl font-bold'>
-                        Create a flock
+                        {title}
                     </div>
                     <button 
                         onClick={() => setOpen(false)}
