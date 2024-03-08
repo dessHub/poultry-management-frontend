@@ -1,27 +1,23 @@
-import {} from 'react';
+import {FC} from 'react';
 import { Pie } from 'react-chartjs-2';
 
-export const data = {
-  labels: ['No Of Times Recommended', 'Conversion Rate'],
-  datasets: [
-    {
-      label: 'Conversion rate',
-      data: [50, 19],
-      backgroundColor: [
-        '#2C5282',
-        '#2C7A7B'
-      ],
-      borderColor: [
-        '#2C5282',
-        '#234E52'
-      ],
-      borderWidth: 1,
-    },
-  ],
-};
+interface Props {
+  labels: Array<unknown>
+  data: Array<number>
+}
 
-const PieChart = () => {
-  return <Pie data={data} />;
+const PieChart: FC<Props> = ({labels, data}) => {
+  const pieObject = {
+    labels: [...labels],
+    datasets: [
+      {
+        label: 'Conversion rate',
+        data: [...data],
+        borderWidth: 1,
+      },
+    ],
+  };
+  return <Pie data={pieObject} />;
 }
 
 export default PieChart;
